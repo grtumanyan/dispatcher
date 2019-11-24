@@ -1,0 +1,72 @@
+<?php
+$this->headTitle('About');
+
+$this->mainMenu()->setActiveItemId('about');
+
+$this->pageBreadcrumbs()->setItems([
+    'Home'=>$this->url('home'),
+    'Map'=>$this->url('application', ['action' => 'map']),
+]);
+?>
+
+<h1>Map</h1>
+
+<div id="map" style="width: 1100px; height: 600px"></div>
+
+<script type="text/javascript">
+    ymaps.ready(init);
+    function init(){
+        var myMap = new ymaps.Map("map", {
+            center: [40.18, 44.51],
+            zoom: 13
+        });
+
+        myMap.geoObjects
+            .add(new ymaps.Placemark([40.18, 44.51], {
+                balloonContent: '<strong>37UZ678</strong>',
+                iconCaption: '01'
+            }, {
+                preset: 'islands#blueCircleDotIconWithCaption',
+                iconCaptionMaxWidth: '50'
+            }));
+    }
+</script>
+
+<script>
+    (function worker() {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://www.taxicenter.am/api/fleet_info",
+            "method": "GET",
+            "headers": {
+                "X-TENANT-TOKEN": "<?= $user->getCompany()->getToken() ?>",
+                "Content-Type": "text/plain",
+                "Accept": "*/*",
+                "Cache-Control": "no-cache",
+                "Host": "www.taxicenter.am",
+            },
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+       //setTimeout(worker, 523000);
+
+    })();
+
+    //(function worker() {
+    //    //var settings = {
+    //    //    "url": "https://www.taxicenter.am/api/tenants",
+    //    //    "method": "GET",
+    //    //    "headers": {
+    //    //        "X-TENANT-TOKEN": "<?////= $user->getCompany()->getToken() ?>////",
+    //    //    }
+    //    //}
+    //    //
+    //    //$.ajax(settings).done(function (response) {
+    //    //    console.log(response);
+    //    //});
+    //})();
+</script>
+
