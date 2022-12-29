@@ -1,12 +1,5 @@
-Role Demo Sample
+Dispatcher project
 ==================================================
-
-This sample is based on *User Demo* sample. It shows how to:
-
- * Implement roles and permissions in your website
- * Organize roles in database into an hierarchy
- * Use Zend\Permissions\Rbac component to implement role-based access control
- * Use dynamic assertions to implement complex access control rules
 
 ## Installation
 
@@ -95,7 +88,7 @@ Then create an Apache virtual host. It should look like below:
 </VirtualHost>
 ```
 
-Now you should be able to see the Role Demo website by visiting the link "http://localhost/". 
+Now you should be able to see the Dispatcher website project by visiting the link "http://localhost/". 
  
 ## License
 
@@ -103,5 +96,4 @@ This code is provided under the [BSD-like license](https://en.wikipedia.org/wiki
 
 ## Contributing
 
-If you found a mistake or a bug, please report it using the [Issues](https://github.com/olegkrivtsov/using-zf3-book-samples/issues) page. 
 Your feedback is highly appreciated.
